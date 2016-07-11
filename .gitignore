@@ -1,12 +1,31 @@
-*.class
+# my temp file
 
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
+# virtual machine crash logs
+hs_err_pid*
+
+
+# Sass files
+.sass-cache/
+*.css.map
+
+#Temp Files
+data/
 
 # Package Files #
 *.jar
 *.war
 *.ear
 
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
+# java file
+*.class
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+#Folder idea
+.idea/
+.idea/*.xml
+
+#Sublime Text 3
+*.sublime-workspace
+*.sublime-project
