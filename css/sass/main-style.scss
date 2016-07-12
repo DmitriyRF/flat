@@ -1,0 +1,51 @@
+@import "bourbon/bourbon";
+/*--------------------------  START MEDIA REQUEST  --------------------------*/
+$modular-scale-ratio: 1.1; //$golden=1.618 //bourbon
+$modular-scale-base: 1.9em; //bourbon
+$max-screen-width: (screen0: 2600px,screen1: 1900px, screen2: 1440px, screen3: 1200px, screen4: 992px, screen5: 768px, screen6: 480px, screen7: 320px);
+// $max-screen-width: (screen0: 1440px, screen1: 1200px, screen2: 992px, screen3: 768px, screen4: 480px, screen5: 320px)
+
+@for $i from 0 through 7 {
+	@if map_has_key($max-screen-width, screen#{$i}){
+		@media only screen and (max-width :  map_get($max-screen-width, screen#{$i})){
+			h1{
+				font-size: modular-scale(11 - $i); //bourbon function
+			}
+			h2{
+				font-size: modular-scale(8 - $i); //bourbon function
+			}
+			h3{
+				font-size: modular-scale(4 - $i); //bourbon function
+			}
+			h4{
+				font-size: modular-scale(0 - $i); //bourbon function
+			}
+			h5{
+				font-size: modular-scale(-2 - $i); //bourbon function
+			}
+			p{ 
+				font-size: modular-scale(0 - $i); //bourbon function	
+			}
+			td, th{ 
+				font-size: modular-scale(0 - $i); //bourbon function
+			}
+		}	
+	}
+}
+
+/*--------------------------  END MEDIA REQUEST  --------------------------*/
+/* Переход */
+@mixin  my-transition($transition_time){
+	@include transition-property(all);//bourbon mixin
+	@include transition-duration(0s);//bourbon mixin
+	@include transition-timing-function(ease);//bourbon mixin
+	@include transition-delay($transition_time);//bourbon mixin
+}
+
+/*Скругленные углы*/
+@mixin my-border-radius($my_border_radius){
+	@include border-top-radius($my_border_radius);//bourbon mixin
+	@include border-right-radius($my_border_radius);//bourbon mixin
+	@include border-bottom-radius($my_border_radius);//bourbon mixin
+	@include border-left-radius($my_border_radius);//bourbon mixin	
+}

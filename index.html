@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<!--[if IE 7 ]><html lang="ru" class="ie7"><![endif]-->
+<!--[if IE 8 ]><html lang="ru" class="ie8"><![endif]-->
+<!--[if IE 9 ]><html lang="ru" class="ie9"><![endif]-->
+<!--[if (gt IE 9)|!(IE)]>--><html lang="ru"><!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<meta name="keywords" content="покупка квартир, продажа квартир, купить квартиру, купить квартиру в Москве, продать квартиру в Москве, цены на квартиры, однокомнатные квартиры, двухкомнатные квартиры, без посредников, вторичное жилье, вторичка, новостройка">
+	<meta name="description" content="Продажа и покупка квартир на вторичном рынке, готовые квартиры в новостройках в Москве и Московской области.">
+	<title>Купить квартиру. Продажа и покупка квартир в Москве и Московской области</title>
+	<link rel="stylesheet" href="css/arenda.css">
+</head>
+<body>
+	<div class="site">
+		
+		<th>
+			
+		</th>
+		Новостройка(застройщик) Вторичное
+		Цена от Цена до /за метр
+		1	2	3	4	5	Студия Свободная
+		м2	м2
+		Год		год
+		Материал стен
+		Не 1-й и не последний
+		Район	Улица
+		Метро 	Область на карте
+		Санузел		Балкон
+		Собственник
+		Индикатор количества
+
+
+		<!--Filter-->
+		<div class="arenda-container">
+			<div data-app class="arenda-main">
+				<div class="arenda-main__inner">
+					<div class="arenda-main__box arenda-main__box_1 js-arenda-main__box_1" id="map-wrapper">
+						<div id="map" class="arenda-map js-arenda-map"></div>
+						<div class="arenda-map-group js-arenda-map-group">
+							<div id="search-filter" class="filter filter_wider">
+								<div class="filter__inner">
+									<div class="filter__row filter__row_inputs">
+										<div class="filter__item filter__item_50 filter__item_from">
+											<div class="filter__input-measure">$</div>
+											<input id="search-filter-price-from" data-autoselect type="text" placeholder="5000"
+											class="filter__input filter__item-inner" value="5000" data-bind="value: $root.price.min">
+										</div>
+										<div class="filter__item filter__item_50 filter__item_to">
+											<div class="filter__input-measure">$</div>
+											<input id="search-filter-price-to" data-autoselect type="text" placeholder="1350000"
+											class="filter__input filter__item-inner" value="1350000"
+											data-bind="value: $root.price.max">
+										</div>
+									</div>
+
+									<div class="filter__row filter__row_larger">
+										<label class="filter__item filter__item_25">
+											<input type="checkbox" class="filter__checkbox"
+											data-bind="event: {change: function () {$root.changeFlatType($element, '1')}}, checked: $root.isSelectedFlatType('1')"><span
+											class="filter__item-inner">1</span>
+										</label>
+										<label class="filter__item filter__item_25">
+											<input type="checkbox" class="filter__checkbox"
+											data-bind="event: {change: function () {$root.changeFlatType($element, '2')}}, checked: $root.isSelectedFlatType('2')"><span
+											class="filter__item-inner">2</span>
+										</label>
+										<label class="filter__item filter__item_25">
+											<input type="checkbox" class="filter__checkbox"
+											data-bind="event: {change: function () {$root.changeFlatType($element, '3')}}, checked: $root.isSelectedFlatType('3')"><span
+											class="filter__item-inner">3</span>
+										</label>
+										<label class="filter__item filter__item_25">
+											<input type="checkbox" class="filter__checkbox"
+											data-bind="event: {change: function () {$root.changeFlatType($element, '4')}}, checked: $root.isSelectedFlatType('4')"><span
+											class="filter__item-inner">4+</span>
+										</label>
+									</div>
+
+									<div class="filter__row filter__row_inputs">
+										<div class="filter__item filter__item_50 filter__item_from">
+											<div class="filter__input-measure filter__input-measure_with-super">м<sup>2</sup></div>
+											<input id="search-filter-area-from" data-autoselect type="text" placeholder="8"
+											class="filter__input filter__item-inner" value="8" data-bind="value: $root.area.min">
+										</div>
+										<div class="filter__item filter__item_50 filter__item_to">
+											<div class="filter__input-measure filter__input-measure_with-super">м<sup>2</sup></div>
+											<input id="search-filter-area-to" data-autoselect type="text" placeholder="1000"
+											class="filter__input filter__item-inner" value="1000"
+											data-bind="value: $root.area.max">
+										</div>
+									</div>
+
+									<div class="filter__row">
+										<label class="filter__item filter__item_50">
+											<input type="checkbox" class="filter__checkbox" data-bind="checked: $root.isUsed"><span class="filter__item-inner">Вторичка</span>
+										</label>
+										<label class="filter__item filter__item_50">
+											<input type="checkbox" class="filter__checkbox" data-bind="checked: $root.isNew"><span class="filter__item-inner">Новостройка</span>
+										</label>
+									</div>
+
+									<div class="filter__row filter__row_inputs">
+										<div class="filter__item filter__item_50 filter__item_from">
+											<div class="filter__input-measure">г.п.</div>
+											<input id="search-filter-year-from" data-autoselect type="text" placeholder="1900"
+											class="filter__input filter__item-inner" value="1900" data-bind="value: $root.building_year.min">
+										</div>
+										<div class="filter__item filter__item_50 filter__item_to">
+											<div class="filter__input-measure">г.п.</div>
+											<input id="search-filter-year-to" data-autoselect type="text" placeholder="2017"
+											class="filter__input filter__item-inner" value="2017"
+											data-bind="value: $root.building_year.max">
+										</div>
+									</div>
+
+									<div class="filter__row">
+										<div class="filter__item filter__item_left" data-bind="css: {'filter__item_selected': $root.anyWallingSelected()}">
+											<div class="filter__item-inner">
+												<div class="dropdown dropdown_2 dropdown_no-arrow dropdown_multiselect">
+													<div class="dropdown__value" data-bind="text: $root.getSelectedWallingText()"></div>
+													<ul class="dropdown__menu dropdown__menu_extended dropdown__menu_with-tip">
+														<li class="dropdown__item"
+														data-bind="css: {'dropdown__item_selected': $root.isSelectedWalling('panel')},
+														click: function () {$root.toggleWalling('panel')}">Панель
+													</li>
+													<li class="dropdown__item"
+													data-bind="css: {'dropdown__item_selected': $root.isSelectedWalling('brick')},
+													click: function () {$root.toggleWalling('brick')}">Кирпич
+												</li>
+												<li class="dropdown__item"
+												data-bind="css: {'dropdown__item_selected': $root.isSelectedWalling('monolith')},
+												click: function () {$root.toggleWalling('monolith')}">Монолит
+											</li>
+											<li class="dropdown__item"
+											data-bind="css: {'dropdown__item_selected': $root.isSelectedWalling('block')},
+											click: function () {$root.toggleWalling('block')}">Блок
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="filter__row">
+						<label class="filter__item">
+							<input type="checkbox" class="filter__checkbox" data-bind="checked: $root.isOutermostFloor"><span class="filter__item-inner filter__item-inner_left">Не&nbsp;<nobr>1-й</nobr> и&nbsp;не&nbsp;последний этаж</span><span class="filter__item-status arenda-icon arenda-icon_ok2"></span>
+						</label>
+					</div>
+
+					<div class="filter__row">
+						<div class="filter__item filter__item_left filter__item_search"
+						data-bind="css: {'filter__item_processing': $root.geocoder.isProcessing, 'filter__item_selected': $root.geocoder.keyword() !== ''}">
+						<div class="filter__item-inner">
+							<div class="dropdown dropdown_manual dropdown_no-arrow"
+							data-bind="css: {'dropdown_opened': $root.geocoder.isVisibleList}">
+							<div class="dropdown__value">
+								<input type="text" placeholder="Город, район, улица"
+								class="filter__input filter__input_full"
+								data-bind="value: $root.geocoder.keyword, hasFocus: $root.geocoder.hasForcedFocus,
+								valueUpdate: 'input',
+								event: {click: _.bind($root.geocoder.onFocus, $root.geocoder),
+								focus: _.bind($root.geocoder.onFocus, $root.geocoder),
+								keyup: _.bind($root.geocoder.onKeyUp, $root.geocoder),
+								blur: _.bind($root.geocoder.onBlur, $root.geocoder)}">
+								<span class="dropdown__clear" style="display: none"
+								data-bind="click: _.bind($root.geocoder.resetKeyword, $root.geocoder),
+								visible: !$root.geocoder.isProcessing() && $root.geocoder.keyword()"></span>
+								<span class="filter__gradient"></span>
+							</div>
+							<ul class="dropdown__menu dropdown__menu_wide"
+							data-bind="foreach: {data: $root.geocoder.list, as: 'location'}">
+							<li class="dropdown__item"
+							data-bind="css: {'dropdown__item_focused': $root.geocoder.activeSuggestIndex() === $index()},
+							text: location.title,
+							event: {mousedown: _.bind($root.geocoder.applyLocation, $root.geocoder)}"></li>
+						</ul>
+						<div class="dropdown__msg dropdown__msg_specific"
+						data-bind="css: {'dropdown__msg_visible': $root.geocoder.isLocationNotFound}">По вашему
+						запросу ничего не найдено. Попробуйте упростить запрос или проверить на возможные
+						опечатки и ошибки.
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+
+<div id="map-status-processing" class="status" style="display: none" data-bind="visible: $root.isProcessing">
+	<div class="status__btn status__btn_processing">&nbsp;</div>
+</div>
+
+<div id="map-status-sync-button" class="status" style="display: none"
+data-bind="click: $root.onSyncButtonClick, visible: $root.isVisibleSyncButton">
+<div class="status__btn">Показать <span data-bind="text: SearchApartments.formatCounter($root.total())"></span></div>
+</div>
+
+<div id="map-status-autosync" class="status" data-bind="visible: !$root.isVisibleSyncButton() && !$root.isProcessing()">
+	<label class="status__btn status__btn_alter status__btn_checkbox">
+		<span class="i-checkbox status__checkbox">
+			<input type="checkbox" data-bind="checked: $root.autosync" class="i-checkbox__real">
+			<span class="i-checkbox__faux"></span>
+		</span>
+		<span class="status__checkbox-text">
+			поиск при перемещении карты
+		</span>
+	</label>
+</div>
+</div>
+</div>
+
+</div>
+</body>
+</html>
