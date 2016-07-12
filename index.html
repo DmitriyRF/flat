@@ -181,8 +181,8 @@
 					</div>
 				</div>
 			</div>
-		</div>
-	</div>
+	</div>        
+	               </div>
 </div>
 </div>
 
@@ -192,20 +192,23 @@
 
 <div id="map-status-sync-button" class="status" style="display: none"
 data-bind="click: $root.onSyncButtonClick, visible: $root.isVisibleSyncButton">
-<div class="status__btn">Показать <span data-bind="text: SearchApartments.formatCounter($root.total())"></span></div>
+    <div class="status__btn">Показать <span data-bind="text: SearchApartments.formatCounter($root.total())"></span></div>
 </div>
 
-<div id="map-status-autosync" class="status" data-bind="visible: !$root.isVisibleSyncButton() && !$root.isProcessing()">
-	<label class="status__btn status__btn_alter status__btn_checkbox">
-		<span class="i-checkbox status__checkbox">
-			<input type="checkbox" data-bind="checked: $root.autosync" class="i-checkbox__real">
-			<span class="i-checkbox__faux"></span>
-		</span>
-		<span class="status__checkbox-text">
-			поиск при перемещении карты
-		</span>
-	</label>
+    <div id="map-status-autosync" class="status" data-bind="visible: !$root.isVisibleSyncButton() && !$root.isProcessing()">
+    	<label class="status__btn status__btn_alter status__btn_checkbox">
+    		<span class="i-checkbox status__checkbox">
+    			<input type="checkbox" data-bind="checked: $root.autosync" class="i-checkbox__real">
+    			<span class="i-checkbox__faux"></span>
+    		</span>
+    		<span class="status__checkbox-text">
+    			поиск при перемещении карты
+    		</span>
+    	</label>
+    </div>
 </div>
+</div>
+
 </div>
 </div>
 
